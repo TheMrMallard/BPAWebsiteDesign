@@ -22,15 +22,20 @@
                     <a class="nav-item nav-link" href="Pages/car_listing.html">Car Listings</a>
                 </div>
             </nav>
-
+            
             <main>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search for cars!" aria-level=""> 
+                    <input type="text" class="form-control" placeholder="Search for cars!" aria-level="" id="searchInput"> 
 
                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button">Search</button>
+                        <button class="btn btn-outline-secondary" type="button" onclick="searchList()">Search</button>
                     </div>
                 </div>
+
+                <div id="carList">
+                    
+                </div>
+                
             </main>
 
             <footer>
@@ -38,5 +43,5 @@
         </div>
     </body>
 
-    <script href="main.js"></script>
+    <script src="car_list.js"></script>
 </html>
