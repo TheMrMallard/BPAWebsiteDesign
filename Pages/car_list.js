@@ -16,7 +16,10 @@ function searchList() {
 
 // For statement
 carList.forEach(function(carInfo) {
-    // Basically imagine this is typing the code into HTML, but I'm basically building it
+    /*
+    * Basically imagine this is typing the code into HTML, but I'm basically building it
+    * Note to John (typed by John): Add the bootstrap syntax after layout is planned
+    */
     info += 
     '<ul>' + '<li>' + 'Car Id: ' + carInfo.carId 
             + '<ul>' 
