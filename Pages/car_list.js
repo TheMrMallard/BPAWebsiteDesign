@@ -1,4 +1,4 @@
-// Imports array from car_array.js which has all information regarding cars
+// Create array
 var carList = new Array();
 var info = "";
 
