@@ -52,6 +52,12 @@ function searchList() {
 }
 
 // Step 2 - Filter results based on user input without case sensitivity
+
+/* I think you can make a recursive function for this so that high priority 
+* results go on first, then remove one word, then second-most and so on... 
+* not important right now this is already good.
+*/
+
 function searchFilter(array, keyValue) {
     let filteredForm = '';
 
