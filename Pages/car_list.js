@@ -48,6 +48,7 @@ function searchList() {
     */
     
     document.querySelector('#carList').innerHTML = newSearchFilter(carList, words);
+    document.querySelector('#carList').innerHTML += words.length;
 }
 
 // Step 2 - Filter results based on user input without case sensitivity
@@ -60,7 +61,10 @@ function searchList() {
 function newSearchFilter(array, keyValues) {
     let filteredForm = '';
     let arrayScore = []
-    
+
+    // Checks if the user did not type anything, it will restore to its default
+    if (keyValues[0] == '') {return info}
+
     // Sets the needed amount of indexes to start the algorithm
     for(i = 0; i < array.length; i++) {
         arrayScore[i] = 0;
@@ -83,7 +87,7 @@ function newSearchFilter(array, keyValues) {
         }
     }
 
-    // I want to add an algorithm here that further sorts the cars through a dropdown bar
+    // I want to add an algorithm here that further sorts the cars through a dropdown bar, eg price or name, etc
     
     // Once the iterations are done, find the largest point (largest is the length of keyValue) then go down from there. Objects with zero points will not appear
     for(i = keyValues.length; i > 0; i--) {
