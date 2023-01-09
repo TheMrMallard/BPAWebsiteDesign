@@ -7,8 +7,8 @@ carList.push(
     {carId: 1, model: 'Ford', fuelType: "Gasoline", price: 1000, mileage: 12421},
     {carId: 2, model: 'Chevron', fuelType: "Gasoline", price: 5200, mileage: 5832},
     {carId: 3, model: 'Ford', fuelType: "Gasoline", price: 1000, mileage: 12421},
-    {carId: 4, model: 'Chevron', fuelType: "Gasoline", price: 5200, mileage: 5832},
-    {carId: 5, model: 'Nissan', fuelType: "Gasoline", price: 1000, mileage: 12421},
+    {carId: 4, model: 'Chevron', fuelType: "Electric", price: 5200, mileage: 5832},
+    {carId: 5, model: 'Nissan', fuelType: "Electric", price: 1000, mileage: 12421},
     {carId: 6, model: 'Chevron', fuelType: "Gasoline", price: 5200, mileage: 5832},
     {carId: 7, model: 'Tesla', fuelType: "Electric", price: 52000, mileage: 5832},
 );
@@ -47,8 +47,7 @@ function searchList() {
     formResult += searchFilter(carList, words);
     */
     
-    document.querySelector('#carList').innerHTML = searchFilter(carList, words);
-    document.querySelector('#carList').innerHTML += words.length;
+    document.querySelector('#carList').innerHTML = newSearchFilter(carList, words);
 }
 
 // Step 2 - Filter results based on user input without case sensitivity
@@ -58,39 +57,53 @@ function searchList() {
 * not important right now this is already good.
 */
 
-function searchFilter(array, keyValue) {
+function newSearchFilter(array, keyValues) {
     let filteredForm = '';
+    let arrayScore = []
+    
+    // Sets the needed amount of indexes to start the algorithm
+    for(i = 0; i < array.length; i++) {
+        arrayScore[i] = 0;
+    }
 
-    // Accesses objects in array
-        for(w = 0; w < keyValue.length; w++) {
+    // Iterate through each word, and add one point to each word matched in each of the objects
+    for(w = 0; w < keyValues.length; w++) {
+        
+        // Acess each value in each object
+        for(i = 0; i < array.length; i++) {
+            for (let value in array[i]) {
+                let arrayValue = array[i][value].toString()
+                let input = keyValues[w].toString()
 
-            for(i = 0; i < array.length; i++) {
-                // Accesses values in object
-                for (let value in array[i]) {
-                    // Turns these values to string so it can be lowercased.
-                    let arrayValue = array[i][value].toString()
-                    let input = keyValue[w].toString()
-
-                    if (input == ' ' || input == '') {
-                        filteredForm = info;
-                    } else if (arrayValue.toLowerCase() == input.toLowerCase()) {
-                        filteredForm += listBuilder(array[i])
-                    }
+                // If values match, add one point to the object
+                if (arrayValue.toLowerCase() == input.toLowerCase()) {
+                    arrayScore[i] += 1
                 }
             }
-
         }
-    // Checks for duplicates, mentioned below
-    filteredForm = checkForDuplication(filteredForm);
+    }
+
+    // I want to add an algorithm here that further sorts the cars through a dropdown bar
+    
+    // Once the iterations are done, find the largest point (largest is the length of keyValue) then go down from there. Objects with zero points will not appear
+    for(i = keyValues.length; i > 0; i--) {
+        // Access object points
+        for(j = 0; j < array.length; j++) {
+            if (arrayScore[j] == i) {
+                filteredForm += listBuilder(array[j])
+            }
+        }
+    }
 
     return filteredForm;
 }
+
 
 // Step 3 - check for any duplicates (wip)
 function checkForDuplication(array) {
     for (i = 0; i < array.length; i++) {
         if (array.indexOf(array[i]) != array.lastIndexOf(array[i])) {
-            // The problem here is that I'm returning a bulleted list, not an array
+            array.splice(i, i-1);
         }
     }
 
