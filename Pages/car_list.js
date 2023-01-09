@@ -1,5 +1,4 @@
 // ---------------- IMPORT ----------------
-var carList = require('./car_data')
 var info = "";
 
 // ---------------- Database ----------------
