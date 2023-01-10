@@ -27,22 +27,35 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search for cars!" aria-level="" id="searchInput"> 
 
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sort by
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="setSort(0)">Nothing</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(1)">Price (High to Low)</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(2)">Price (Low to High)</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(3)">Name (A to Z)</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(4)">Name (Z to A)</a>
+                        </div>
+                    </div>
+
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-secondary" type="button" onclick="searchList()">Search</button>
                     </div>
                 </div>
+                <hr>
 
                 <div id="carList">
-                    
                 </div>
-                
             </main>
 
             <footer>
             </footer>
         </div>
     </body>
-    
+
     <script src="car_data.js"></script>
+    <script src="sorting_functions.js"></script>
     <script src="car_list.js"></script>
 </html>

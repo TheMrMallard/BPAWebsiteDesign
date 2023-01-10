@@ -1,7 +1,5 @@
-// ---------------- IMPORT ----------------
+// ---------------- VARIABLES ----------------
 var info = "";
-
-// ---------------- Database ----------------
 
 // ----------------- STYLING LISTS ------------------------
 /* Creates a unordered list through coding
@@ -9,6 +7,7 @@ var info = "";
 * Note to John (typed by John): Add the bootstrap syntax after layout is planned
 */
 
+// Builds a profile of a car
 function carInfoBuilder(array) {
     let builder = ''
     builder += 
@@ -19,8 +18,8 @@ function carInfoBuilder(array) {
                 + '<li>' + 'Fuel Type: ' + array.fuelType + '</li>'
                 + '<li>' + 'Price: ' + array.price + '</li>'
                 + '<li>' + 'Mileage: ' + array.mileage + '</li>'
-                + '<li>' + 'Interior Color: ' + array.interiorColor + '</li>'
-                + '<li>' + 'Exterior Color: ' + array.exteriorColor + '</li>'
+
+                + '<li>' + 'Color: ' + array.exteriorColor + '</li>'
             + '</ul>' 
         + '</li>' 
     + '</ul>'
@@ -32,22 +31,18 @@ function carInfoBuilder(array) {
 function searchList() {
     let keyInput = document.querySelector('#searchInput').value;
     let words = keyInput.split(' ')
-
-    /* Don't need these until I think I need them
-    let formResult = ''
-    formResult += searchFilter(carList, words);
-    */
     
-    document.querySelector('#carList').innerHTML = newSearchFilter(carList, words);
+    document.querySelector('#carList').innerHTML = searchFilter(carList, words);
+    document.querySelector('#carList').innerHTML += words.length;
     // document.querySelector('#carList').innerHTML += words.length;
 }
 
 // Step 2 - Filter results based on user input without case sensitivity
-
-function newSearchFilter(array, keyValues) {
-    let filteredForm = '';
+function searchFilter(array, keyValues) {
     let emptyScore = 0;
     let arrayScore = []
+    let filteredForm = '';
+    
 
     // Checks if the user did not type anything (including just spaces), it will restore to its default
     for(i = 0; i < keyValues.length; i++) {
@@ -86,9 +81,12 @@ function newSearchFilter(array, keyValues) {
 
     // I want to add an algorithm here that further sorts the cars through a dropdown bar, eg price or name, etc
     
-    // Once the iterations are done, find the largest then go down from there. Objects with zero points will not appear
-    for (j = 0; j < array.length; j++) {
-        for (i = Object.keys(array[j]).length; i > 0; i--) {
+    // Once the iterations are done, find the largest number in the array then go down from there. Objects with zero points will not appear
+
+    let score = Math.max(...arrayScore)
+    
+    for (i = score; i > 0; i--) {
+        for (j = 0; j < array.length; j++) {
             // Access object points  
             if (arrayScore[j] == i) {
                 filteredForm += carInfoBuilder(array[j])
@@ -97,7 +95,6 @@ function newSearchFilter(array, keyValues) {
     }
     return filteredForm;
 }
-
 
 // Step 3 - check for any duplicates (wip)
 function checkForDuplication(array) {
