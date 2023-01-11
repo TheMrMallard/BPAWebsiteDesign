@@ -4,6 +4,8 @@ function setSort(number) {
     sortBy = number;
 }
 
+// Determine how price order when theres no duplication
+
 function checkSorting(array) {
     switch(sortBy) {
         case 0:
@@ -24,6 +26,6 @@ function checkSorting(array) {
     return result;
 }
 
-function sortHighToLow() {
-    
+function priceHightoLow(array, arrayScore) {
+
 }
