@@ -33,7 +33,7 @@ function searchList() {
     let words = keyInput.split(' ')
     
     document.querySelector('#carList').innerHTML = searchFilter(carList, words);
-    document.querySelector('#carList').innerHTML += words.length;
+    // document.querySelector('#carList').innerHTML += words.length;
     // document.querySelector('#carList').innerHTML += words.length;
 }
 
@@ -81,7 +81,7 @@ function searchFilter(array, keyValues) {
 
     // I want to add an algorithm here that further sorts the cars through a dropdown bar, eg price or name, etc
 
-    let sortingScore = sortMethods(array, arrayScore)
+    let sortingScore = sortList(array, arrayScore)
 
     // Once the iterations are done, find the largest number in the array then go down from there. Objects with zero points will not appear
 
@@ -95,7 +95,7 @@ function searchFilter(array, keyValues) {
             }
         }
     }
-    return filteredForm;
+    return sortingScore;
 }
 
 // Step 3 - check for any duplicates (wip)

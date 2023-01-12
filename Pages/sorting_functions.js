@@ -4,40 +4,55 @@ function setSort(number) {
     sortBy = number;
 }
 
-function sortMethods(array, arrayScore) {
-    let priceAndPosition = [arrayScore.length][arrayScore.length];
-    let result = [];    
-    let highestScore = Math.max(...arrayScore)
-    let points = 0;
+function sortValues(array, arrayScore, keyValue, beReversed) {
+    // Setup array
+    let valueAndPosition = new Array(arrayScore.length)
+    let hasDuplicates = false;
+    let reverse = beReversed;
 
-// Determine how price order when theres no duplication
+    for(i = 0; i < valueAndPosition.length; i++) {
+        valueAndPosition[i] = new Array(2)
+    }
 
-function checkSorting(array) {
+   
+    // Save price and index position
+    for(i = 0; i < valueAndPosition.length; i++) {
+        if (countDuplicates(arrayScore, i) != 0) {
+            for(j = 0; j < valueAndPosition[i].length; j++) {
+                if(j == 0) {
+                    valueAndPosition[i][j] = array[j].price;
+                } else {
+                    valueAndPosition[i][j] = i;
+                }
+            }
+        }
+    }
+
+    if (reverse) {
+        valueAndPosition.sort((a, b) => (b[0] - a[0] || (b[1] - a[1])))
+    } else {
+        valueAndPosition.sort((a, b) => (a[0] - b[0] || (a[1] - b[1])))
+    }
+    
+
+    return valueAndPosition;
+}
+
+function sortList(array, arrayScore) {
+    let hasDuplicates = false;
+    let result = []
+
     switch(sortBy) {
         case 0: // default
-                
+            result = arrayScore;
         break;
 
         case 1: // price (high to low)
-            // Save price and index position
-            for(i = 0; i < array.length; i++) {
-                for(j = 0; j < priceAndPosition[i].length; j++) {
-                    if(j == 0) {
-                        priceAndPosition[i][j] = array[i].price;
-                    } else {
-                        priceAndPosition[i][j] = i;
-                    }
-                }
-            }
+            let priceAndPosition = sortValues(array, arrayScore, 'price', true)
 
-            // Sort array based on price
-            priceAndPosition.sort((a, b) => (b[0] - a[0] || (b[1] - a[1])))
-
-            document.querySelector('#carList').innerHTML += priceAndPosition;
+            result += priceAndPosition;
             
-
-
-
+            /*
             for(i = 0; i < highestScore.length; i++) {
                 if(countDuplicates(arrayScore, i) > 0) {
                     // Find duplicates and iterate the whole array starting from i and add points up to the highestScore
@@ -55,6 +70,7 @@ function checkSorting(array) {
                     }
                 }
             }
+            */
             
         break;
         
