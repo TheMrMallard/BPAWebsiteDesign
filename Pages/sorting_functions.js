@@ -15,12 +15,14 @@ function sortValues(array, arrayScore, keyValue, beReversed) {
     }
 
    
-    // Save price and index position
+    // Iterate through the whole arrayScore
     for(i = 0; i < valueAndPosition.length; i++) {
         if (countDuplicates(arrayScore, i) != 0) {
-            for(j = 0; j < valueAndPosition[i].length; j++) {
+            // Spot the duplicates in the array 
+
+            for(j = 0; j < countDuplicates(arrayScore, i); j++) {
                 if(j == 0) {
-                    valueAndPosition[i][j] = array[j].price;
+                    valueAndPosition[i][j] = array[i][keyValue];
                 } else {
                     valueAndPosition[i][j] = i;
                 }
