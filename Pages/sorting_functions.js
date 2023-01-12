@@ -10,6 +10,9 @@ function sortMethods(array, arrayScore) {
     let highestScore = Math.max(...arrayScore)
     let points = 0;
 
+// Determine how price order when theres no duplication
+
+function checkSorting(array) {
     switch(sortBy) {
         case 0: // default
                 
@@ -70,4 +73,7 @@ function sortMethods(array, arrayScore) {
 
 function countDuplicates(array, key) {
     array.filter((value) => {return value === key})
+}
+function priceHightoLow(array, arrayScore) {
+
 }
