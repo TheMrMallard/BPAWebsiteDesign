@@ -80,7 +80,9 @@ function searchFilter(array, keyValues) {
     }
 
     // I want to add an algorithm here that further sorts the cars through a dropdown bar, eg price or name, etc
-    
+
+    let sortingScore = sortMethods(array, arrayScore)
+
     // Once the iterations are done, find the largest number in the array then go down from there. Objects with zero points will not appear
 
     let score = Math.max(...arrayScore)
