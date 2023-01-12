@@ -6,38 +6,43 @@ function setSort(number) {
 
 function sortValues(array, arrayScore, keyValue, beReversed) {
     // Setup array
-    let valueAndPosition = new Array(arrayScore.length)
+    let valueScorePosition = new Array(arrayScore.length)
     let hasDuplicates = false;
     let reverse = beReversed;
+    let highest = Math.max(...arrayScore)
 
-    for(i = 0; i < valueAndPosition.length; i++) {
-        valueAndPosition[i] = new Array(2)
+    for(i = 0; i < valueScorePosition.length; i++) {
+        valueScorePosition[i] = new Array(3)
     }
 
    
-    // Iterate through the whole arrayScore
-    for(i = 0; i < valueAndPosition.length; i++) {
-        if (countDuplicates(arrayScore, i) != 0) {
-            // Spot the duplicates in the array 
-
-            for(j = 0; j < countDuplicates(arrayScore, i); j++) {
-                if(j == 0) {
-                    valueAndPosition[i][j] = array[i][keyValue];
-                } else {
-                    valueAndPosition[i][j] = i;
-                }
+    // Iterate through and make valueAndPosition array
+    for(i = 0; i < valueScorePosition.length; i++) {
+        for(j = 0; j < valueScorePosition[i].length; j++) {
+            if(j == 0) {
+                valueScorePosition[i][j] = array[i][keyValue];
+            } else if (j == 1) {
+                valueScorePosition[i][j] = i
+            } else {
+                valueScorePosition[i][j] = arrayScore[i];
             }
         }
     }
 
     if (reverse) {
-        valueAndPosition.sort((a, b) => (b[0] - a[0] || (b[1] - a[1])))
+        valueScorePosition.sort((a, b) => (b[0] - a[0] || (b[1] - a[1])))
     } else {
-        valueAndPosition.sort((a, b) => (a[0] - b[0] || (a[1] - b[1])))
+        valueScorePosition.sort((a, b) => (a[0] - b[0] || (a[1] - b[1])))
     }
     
+    // Figure out if there are any score duplications, by the current index checking previous, then switching if the value is higher than the rest
+    for(i = 0; i < valueScorePosition.length - 1; i++) {
+        if(valueScorePosition[i][1] == valueScorePosition[i+1][1]) {
+            //test
+        }
+    }
 
-    return valueAndPosition;
+    return valueScorePosition;
 }
 
 function sortList(array, arrayScore) {
