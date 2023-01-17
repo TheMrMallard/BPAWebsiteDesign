@@ -80,22 +80,28 @@ function searchFilter(array, keyValues) {
     }
 
     // I want to add an algorithm here that further sorts the cars through a dropdown bar, eg price or name, etc
-
     let sortingScore = sortList(array, arrayScore)
-
-    // Once the iterations are done, find the largest number in the array then go down from there. Objects with zero points will not appear
-
     let score = Math.max(...arrayScore)
     
-    for (i = score; i > 0; i--) {
-        for (j = 0; j < array.length; j++) {
-            // Access object points  
-            if (arrayScore[j] == i) {
-                filteredForm += carInfoBuilder(array[j])
+    // Once the sorting iterations are done, check if there is a sort by used and process them in website
+    if (sortBy == 0) {
+        for (i = score; i > 0; i--) {
+            for (j = 0; j < array.length; j++) {
+                // Access object points  
+                if (arrayScore[j] == i) {
+                    filteredForm += carInfoBuilder(array[j])
+                }
             }
         }
+
+    } else {
+        for (i = 0; i < sortingScore.length; i++) {
+            // Access object points
+            let position = sortingScore[i][1]
+            filteredForm += carInfoBuilder(array[position])
+        }
     }
-    return sortingScore;
+    return filteredForm;
 }
 
 // Step 3 - check for any duplicates (wip)
