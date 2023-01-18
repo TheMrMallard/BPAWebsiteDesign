@@ -11,18 +11,29 @@ var info = "";
 function carInfoBuilder(array) {
     let builder = ''
     builder += 
-    // Basically pretend this is building HTML code
-    '<ul>' + '<li>' + 'Car Id: ' + array.carId 
-            + '<ul>' 
-                + '<li>' + 'Model: ' + array.model + '</li>'
-                + '<li>' + 'Fuel Type: ' + array.fuelType + '</li>'
-                + '<li>' + 'Price: ' + array.price + '</li>'
-                + '<li>' + 'Mileage: ' + array.mileage + '</li>'
+    // Basically building HTML code with Bootstrap
 
-                + '<li>' + 'Color: ' + array.exteriorColor + '</li>'
-            + '</ul>' 
-        + '</li>' 
-    + '</ul>'
+    `<div class="card m-2"> 
+        <div class="row"> 
+            <div class="col-md-4"> 
+                <div class="card-body"> 
+                    <h5 class="cardtitle"> ${array.model} </h5> 
+                    <ul>
+                        <li> Fuel Type: ${array.fuelType} </li>
+                        <li> Price: ${array.price} </li>
+                        <li> Mileage: ${array.mileage} </li>
+                        <li> Color: ${array.exteriorColor} </li>
+                    </ul> 
+                
+                    Car Id: ${array.carId} (shown for showcase purposes, ideally you would not show this)
+                </div> 
+            </div> 
+
+            <div class="col-md-8"> 
+                <img href="${array.img}" alt="${array.alt}">
+            </div> 
+        </div> 
+    </div>`
 
     return builder;
 }
@@ -33,8 +44,6 @@ function searchList() {
     let words = keyInput.split(' ')
     
     document.querySelector('#carList').innerHTML = searchFilter(carList, words);
-    // document.querySelector('#carList').innerHTML += words.length;
-    // document.querySelector('#carList').innerHTML += words.length;
 }
 
 // Step 2 - Filter results based on user input without case sensitivity
@@ -102,17 +111,6 @@ function searchFilter(array, keyValues) {
         }
     }
     return filteredForm;
-}
-
-// Step 3 - check for any duplicates (wip)
-function checkForDuplication(array) {
-    for (i = 0; i < array.length; i++) {
-        if (array.indexOf(array[i]) != array.lastIndexOf(array[i])) {
-            array.splice(i, i-1);
-        }
-    }
-
-    return array;
 }
 
 // Setup the main page showing all of the cars

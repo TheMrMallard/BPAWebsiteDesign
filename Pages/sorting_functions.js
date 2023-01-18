@@ -73,10 +73,3 @@ function sortList(array, arrayScore) {
 
     return result;
 }
-
-function countDuplicates(array, key) {
-    array.filter((value) => {return value === key})
-}
-function priceHightoLow(array, arrayScore) {
-
-}
