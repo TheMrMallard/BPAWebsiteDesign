@@ -1,18 +1,5 @@
-// Create array
-var carList = new Array();
+// ---------------- VARIABLES ----------------
 var info = "";
-
-// ---------------- Database ----------------
-carList.push(
-    {carId: 1, model: 'Ford', fuelType: "Gasoline", price: 1000, mileage: 12421},
-    {carId: 2, model: 'Chevron', fuelType: "Gasoline", price: 5200, mileage: 5832},
-    {carId: 3, model: 'Ford', fuelType: "Gasoline", price: 1000, mileage: 12421},
-    {carId: 4, model: 'Chevron', fuelType: "Electric", price: 5200, mileage: 5832},
-    {carId: 5, model: 'Nissan', fuelType: "Electric", price: 1000, mileage: 12421},
-    {carId: 6, model: 'Chevron', fuelType: "Gasoline", price: 5200, mileage: 5832},
-    {carId: 7, model: 'Tesla', fuelType: "Electric", price: 52000, mileage: 5832},
-);
-// ---------------- Database ----------------
 
 // ----------------- STYLING LISTS ------------------------
 /* Creates a unordered list through coding
@@ -20,19 +7,33 @@ carList.push(
 * Note to John (typed by John): Add the bootstrap syntax after layout is planned
 */
 
-function listBuilder (array) {
+// Builds a profile of a car
+function carInfoBuilder(array) {
     let builder = ''
     builder += 
-    // Basically pretend this is building HTML code
-    '<ul>' + '<li>' + 'Car Id: ' + array.carId 
-            + '<ul>' 
-                + '<li>' + 'Model: ' + array.model + '</li>'
-                + '<li>' + 'Fuel Type: ' + array.fuelType + '</li>'
-                + '<li>' + 'Price: ' + array.price + '</li>'
-                + '<li>' + 'Mileage: ' + array.mileage + '</li>'
-            + '</ul>' 
-        + '</li>' 
-    + '</ul>'
+    // Basically building HTML code with Bootstrap
+
+    `<div class="card m-2"> 
+        <div class="row"> 
+            <div class="col-md-4"> 
+                <div class="card-body"> 
+                    <h5 class="cardtitle"> ${array.model} </h5> 
+                    <ul>
+                        <li> Fuel Type: ${array.fuelType} </li>
+                        <li> Price: ${array.price} </li>
+                        <li> Mileage: ${array.mileage} </li>
+                        <li> Color: ${array.exteriorColor} </li>
+                    </ul> 
+                
+                    Car Id: ${array.carId} (shown for showcase purposes, ideally you would not show this)
+                </div> 
+            </div> 
+
+            <div class="col-md-8"> 
+                <img href="${array.img}" alt="${array.alt}">
+            </div> 
+        </div> 
+    </div>`
 
     return builder;
 }
@@ -41,29 +42,22 @@ function listBuilder (array) {
 function searchList() {
     let keyInput = document.querySelector('#searchInput').value;
     let words = keyInput.split(' ')
-
-    /* Don't need these until I think I need them
-    let formResult = ''
-    formResult += searchFilter(carList, words);
-    */
     
-    document.querySelector('#carList').innerHTML = newSearchFilter(carList, words);
-    document.querySelector('#carList').innerHTML += words.length;
+    document.querySelector('#carList').innerHTML = searchFilter(carList, words);
 }
 
 // Step 2 - Filter results based on user input without case sensitivity
-
-/* I think you can make a recursive function for this so that high priority 
-* results go on first, then remove one word, then second-most and so on... 
-* not important right now this is already good.
-*/
-
-function newSearchFilter(array, keyValues) {
-    let filteredForm = '';
+function searchFilter(array, keyValues) {
+    let emptyScore = 0;
     let arrayScore = []
+    let filteredForm = '';
+    
 
-    // Checks if the user did not type anything, it will restore to its default
-    if (keyValues[0] == '') {return info}
+    // Checks if the user did not type anything (including just spaces), it will restore to its default
+    for(i = 0; i < keyValues.length; i++) {
+        if (keyValues[i] != '') {emptyScore += 1}
+    }
+    if (emptyScore == 0) {return info}
 
     // Sets the needed amount of indexes to start the algorithm
     for(i = 0; i < array.length; i++) {
@@ -73,50 +67,55 @@ function newSearchFilter(array, keyValues) {
     // Iterate through each word, and add one point to each word matched in each of the objects
     for(w = 0; w < keyValues.length; w++) {
         
-        // Acess each value in each object
+        // Access each value in each object
         for(i = 0; i < array.length; i++) {
+
             for (let value in array[i]) {
+                // Will split up words from the value in each object
                 let arrayValue = array[i][value].toString()
+                let valueWords = arrayValue.split(' ')
+
                 let input = keyValues[w].toString()
 
-                // If values match, add one point to the object
-                if (arrayValue.toLowerCase() == input.toLowerCase()) {
-                    arrayScore[i] += 1
+                // The word will iterate through each word in the input
+                for(j = 0; j < valueWords.length; j++) {
+                    // If values match, add one point to the object
+                    if (valueWords[j].toLowerCase() == input.toLowerCase()) {
+                        arrayScore[i] += 1
+                    }
                 }
             }
         }
     }
 
     // I want to add an algorithm here that further sorts the cars through a dropdown bar, eg price or name, etc
+    let sortingScore = sortList(array, arrayScore)
+    let score = Math.max(...arrayScore)
     
-    // Once the iterations are done, find the largest point (largest is the length of keyValue) then go down from there. Objects with zero points will not appear
-    for(i = keyValues.length; i > 0; i--) {
-        // Access object points
-        for(j = 0; j < array.length; j++) {
-            if (arrayScore[j] == i) {
-                filteredForm += listBuilder(array[j])
+    // Once the sorting iterations are done, check if there is a sort by used and process them in website
+    if (sortBy == 0) {
+        for (i = score; i > 0; i--) {
+            for (j = 0; j < array.length; j++) {
+                // Access object points  
+                if (arrayScore[j] == i) {
+                    filteredForm += carInfoBuilder(array[j])
+                }
             }
         }
-    }
 
-    return filteredForm;
-}
-
-
-// Step 3 - check for any duplicates (wip)
-function checkForDuplication(array) {
-    for (i = 0; i < array.length; i++) {
-        if (array.indexOf(array[i]) != array.lastIndexOf(array[i])) {
-            array.splice(i, i-1);
+    } else {
+        for (i = 0; i < sortingScore.length; i++) {
+            // Access object points
+            let position = sortingScore[i][1]
+            filteredForm += carInfoBuilder(array[position])
         }
     }
-
-    return array;
+    return filteredForm;
 }
 
 // Setup the main page showing all of the cars
 carList.forEach(function(carInfo) {
-    info += listBuilder(carInfo)
+    info += carInfoBuilder(carInfo)
 });
 
 document.querySelector('#carList').innerHTML = info;
