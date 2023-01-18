@@ -7,24 +7,150 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
+        
             
             <!--Created navbar here, I added a brand to add an image
             to go alongside with-->
-            <nav class="m-4 navbar fixed-top navbar-expand-md navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">(mini logo goes here) AUTO TITAN</a>
-                </div>
-
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link text-light" href="Pages/about_us.html">About Us</a>
-                    <a class="nav-item nav-link text-light" href="Pages/car_listing.html">Car Listings</a>
-                </div>
-            </nav>
-
+            
             <!---I do not know what to put here yet though in the main body-->
             <main>
-                
+                <header>
+                    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                      <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Carousel</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link disabled">Disabled</a>
+                            </li>
+                          </ul>
+                          <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                          </form>
+                        </div>
+                      </div>
+                    </nav>
+                  </header>
+                  
+                  <main>
+                  
+                    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+
+                      </div>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <svg class="bd-placeholder-img" <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                            <image href="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="200" width="200" />
+                          </svg>
+                  
+                          <div class="container">
+                            <div class="carousel-caption text-start">
+                              <h1>Example headline.</h1>
+                              <p>Some representative placeholder content for the first slide of the carousel.</p>
+                              <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                            <svg class="bd-placeholder-img" <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                                <image href="https://images.pexels.com/photos/810357/pexels-photo-810357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="200" width="200" />
+                              </svg>                  
+                          <div class="container">
+                            <div class="carousel-caption">
+                              <h1>Another example headline.</h1>
+                              <p>Some representative placeholder content for the second slide of the carousel.</p>
+                              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                            <svg class="bd-placeholder-img" <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                                <image href="https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="200" width="200" />
+                              </svg>                  
+                          <div class="container">
+                            <div class="carousel-caption text-end">
+                              <h1>One more for good measure.</h1>
+                              <p>Some representative placeholder content for the third slide of this carousel.</p>
+                              <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <svg class="bd-placeholder-img" <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                            <image href="https://images.pexels.com/photos/1054211/pexels-photo-1054211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="200" width="200" />
+                          </svg>                
+                        <div class="container">
+                          <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Some representative placeholder content for the second slide of the carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <svg class="bd-placeholder-img" <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                            <image href="https://images.pexels.com/photos/14973523/pexels-photo-14973523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="200" width="200" />
+                          </svg>                
+                        <div class="container">
+                          <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Some representative placeholder content for the second slide of the carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <svg class="bd-placeholder-img" <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                            <image href="https://images.pexels.com/photos/11638942/pexels-photo-11638942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="200" width="200" />
+                          </svg>                
+                        <div class="container">
+                          <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Some representative placeholder content for the second slide of the carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <svg class="bd-placeholder-img" <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                            <image href="https://images.pexels.com/photos/7290410/pexels-photo-7290410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="200" width="200" />
+                          </svg>                
+                        <div class="container">
+                          <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Some representative placeholder content for the second slide of the carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
             </main>
                 
             <!--Contacts, other information go in the footer-->
@@ -36,6 +162,5 @@
             </p>
                 <!--bla bla bla-->
             </footer>
-        </div>
     </body>
 </html>
