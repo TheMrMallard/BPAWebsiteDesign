@@ -1,7 +1,7 @@
 // Create array
 var carList = new Array();
 carList.push(
-    {carId: generateId(), model: 'Ford TUWORN', fuelType: "Gasoline", price: 9000, mileage: 12421, exteriorColor: 'Black'},
+    {carId: generateId(), model: 'Ford TUWORN', fuelType: "Gasoline", price: 9000, mileage: 12421, exteriorColor: 'Black', img: '', alt: 'Test'},
     {carId: generateId(), model: 'Chevron', fuelType: "Gasoline", price: 5200, mileage: 5832, exteriorColor: 'Grey'},
     {carId: generateId(), model: 'Ford', fuelType: "Gasoline", price: 2000, mileage: 12421, exteriorColor: 'Black'},
     {carId: generateId(), model: 'Chevron', fuelType: "Electric", price: 7000, mileage: 5832, exteriorColor: 'Grey'},
