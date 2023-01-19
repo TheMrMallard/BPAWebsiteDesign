@@ -24,13 +24,17 @@ function carInfoBuilder(array) {
                         <li> Mileage: ${array.mileage} </li>
                         <li> Color: ${array.exteriorColor} </li>
                     </ul> 
-                
+
+                    <button class="m-2 btn btn-primary disabled" type="button" aria-haspopup="true" aria-expanded="false">
+                        More Info
+                    </button>
+                    <br>
                     Car Id: ${array.carId} (shown for showcase purposes, ideally you would not show this)
                 </div> 
             </div> 
 
             <div class="col-md-8"> 
-                <img src="${array.img}" alt="${array.alt}" height="300" width="300">
+                <img src="${array.img}" alt="${array.alt}">
             </div> 
         </div> 
     </div>`

@@ -8,10 +8,6 @@
 
     </head>
     <body>
-            
-        <!--Navbar and carousel code came from Bootstrap documentation shown here
-        https://getbootstrap.com/docs/5.0/components/carousel/
-        https://getbootstrap.com/docs/5.0/components/navbar/ -->
         
         <!--Navbar creation-->
         <header>
@@ -26,11 +22,11 @@
           </nav>
         </header>
 
-        <!--Carousel creation-->
+        <!--Carousel creation from Bootstrap https://getbootstrap.com/docs/5.0/components/carousel/ -->
         <main>
           <div id="myCarousel" class="carousel slide bg-dark" data-bs-ride="carousel">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 2"></button>
               
             </div>
@@ -64,37 +60,26 @@
                   </div>
               </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-
           </div>
         </main>
 
         <!--Contacts, other information go in the footer-->
-        <footer class="fixed-bottom">
-            <h1>Test</h1>
-            this is the footer btw
-            Stuff that needs to go here:
-            logo,copyright notice, social media icons
-
-            Members: John Amiel Vergara, Ahmed Saoahelian, Caleb Hunt
-            Theme: Create a car website
-            School: Sylvania Northview High School
-            City: Sylvania
-            State: Ohio
-            Year: 2022-2023
-
-        </footer>
+        <footer class="p-2 bg-primary text-center text-light">
+          <div class="container">
+              <hr>
+              <div class="row">
+                  <div class="col-md-4">
+                      <h6>Privacy Policy</h3>
+                  </div>
+                  <div class="col-md-4">
+                      <h6>Terms and Conditions</h3>
+                  </div>
+                  <div class="col-md-4">
+                      <h6>Contact Us!</h3>
+                  </div>
+              </div>
+              <hr>
+          </div>
+      </footer>
     </body>
-
-
-
-    
 </html>
