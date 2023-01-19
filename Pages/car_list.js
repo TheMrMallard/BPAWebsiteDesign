@@ -30,7 +30,7 @@ function carInfoBuilder(array) {
             </div> 
 
             <div class="col-md-8"> 
-                <img src="${array.img}" alt="${array.alt}">
+                <img src="${array.img}" alt="${array.alt}" height="300" width="300">
             </div> 
         </div> 
     </div>`
