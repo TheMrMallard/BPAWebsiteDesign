@@ -69,6 +69,14 @@ function sortList(array, arrayScore) {
         case 2: // price (low to high)
             result.push(...sortValues(array, arrayScore, 'price', false))
         break;
+
+        case 3: // mileage (high to low)
+            result.push(...sortValues(array, arrayScore, 'mileage', true))
+        break;
+
+        case 4: // mileage (low to high)
+            result.push(...sortValues(array, arrayScore, 'mileage', false))
+        break;
     }
 
     return result;

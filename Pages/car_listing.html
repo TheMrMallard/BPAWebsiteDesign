@@ -9,26 +9,24 @@
 
     </head>
     <body>
-        <div class="container">
-            
-            <!--Created navbar here, I added a brand to add an image
-            to go alongside with-->
-            <nav class="m-4 navbar navbar-expand-md navbar-dark bg-dark">
+        
+        <!--Created navbar here, I added a brand to add an image
+        to go alongside with-->
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark bg-primary">
                 <div class="container-fluid">
-
-                    
-                    <a class="navbar-brand" href="/index.html"><img src="/Images/Auto_Titan-removebg-preview.png" width="30" height="30" alt=""> AUTO TITAN</a>
-
+                    <a class="navbar-brand" href="/index.html"><img src="/images/Auto_Titan-removebg-preview.png" width="30" height="30" alt=""> AUTO TITAN</a>
                 </div>
-
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="Pages/about_us.html">About Us</a>
                     <a class="nav-item nav-link" href="Pages/car_listing.html">Car Listings</a>
                 </div>
             </nav>
-            
-            <main>
-                <div class="input-group mb-3">
+        </header>
+        
+        <main>
+            <div class="bg-dark p-5">
+                <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for cars!" aria-level="" id="searchInput"> 
 
                     <div class="dropdown">
@@ -36,24 +34,26 @@
                             Sort by
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onclick="setSort(0)">Default</a>
-                            <a class="dropdown-item" href="#" onclick="setSort(1)">Price (High to Low)</a>
-                            <a class="dropdown-item" href="#" onclick="setSort(2)">Price (Low to High)</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(0)">Best Match</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(1)">Best Match + Price (High to Low)</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(2)">Best Match + Price (Low to High)</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(3)">Best Match + Mileage (High to Low)</a>
+                            <a class="dropdown-item" href="#" onclick="setSort(4)">Best Match + Mileage (Low to High)</a>
                         </div>
                     </div>
                     
                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button" onclick="searchList()">Search</button>
+                        <button class="btn btn-outline-primary" type="button" onclick="searchList()">Search</button>
                     </div>
                 </div>
-                <hr>
-                <div id="carList">
-                </div>
-            </main>
-            <footer class="fixed-bottom">
+            </div>
+            <div id="carList">
+            </div>
+        </main>
+        <footer class="fixed-bottom">
 
-            </footer>
-        </div>
+        </footer>
+        
     </body>
 
     <script src="car_data.js"></script>
