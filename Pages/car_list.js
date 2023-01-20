@@ -114,6 +114,8 @@ function searchFilter(array, keyValues) {
             filteredForm += carInfoBuilder(array[position])
         }
     }
+
+    // Returns final product
     return filteredForm;
 }
 
