@@ -1,0 +1,30 @@
+{
+  "name": "bpawebsitedesign",
+  "version": "0.1.0",
+  "description": "A website about car lots!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperSpaze/BPAWebsiteDesign.git"
+  },
+  "keywords": [
+    "bpa",
+    "car",
+    "design",
+    "listing",
+    "contest",
+    "2023"
+  ],
+  "author": "John Amiel Vergara, Ahmed Saoahelian, Caleb Hunt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SuperSpaze/BPAWebsiteDesign/issues"
+  },
+  "homepage": "https://github.com/SuperSpaze/BPAWebsiteDesign#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
