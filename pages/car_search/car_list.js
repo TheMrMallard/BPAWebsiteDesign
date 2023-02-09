@@ -13,7 +13,7 @@ function carInfoBuilder(array) {
     builder += 
     // Basically building HTML code with Bootstrap
 
-    `<div class="card m-2"> 
+    `<div class="card m-5 p-4"> 
         <div class="row"> 
             <div class="col-md-4"> 
                 <div class="card-body"> 
@@ -29,12 +29,12 @@ function carInfoBuilder(array) {
                         More Info
                     </button>
                     <br>
-                    Car Id: ${array.carId} (shown for showcase purposes, ideally you would not show this)
+                    Car Id: ${array.carId}
                 </div> 
             </div> 
 
             <div class="col-md-8"> 
-                <img src="${array.img}" alt="${array.alt}">
+                <img class="img-thumbnail img-fluid" src="${array.img}" alt="${array.alt}">
             </div> 
         </div> 
     </div>`
