@@ -1,0 +1,35 @@
+// Custom bootstrap styling
+$primary: #009688;
+$secondary: #be4222;
+$light: #f5d7be;
+
+.navbar-brand {
+    z-index: 10;
+    transform: translate(-50%);
+    left: 50%;
+    position: absolute;
+
+    @if {
+        
+    }
+}
+
+body {
+    header {
+        nav {
+            .links {
+                text-decoration: none;
+            }
+        }
+    }
+
+    footer {
+        .links {
+            text-decoration: none;
+        }
+    }
+}
+
+
+// Test
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
