@@ -2,16 +2,13 @@
 $primary: #009688;
 $secondary: #be4222;
 $light: #f5d7be;
+$white: #FFFFFF;
 
 .navbar-brand {
     z-index: 10;
     transform: translate(-50%);
     left: 50%;
     position: absolute;
-
-    @if {
-        
-    }
 }
 
 body {

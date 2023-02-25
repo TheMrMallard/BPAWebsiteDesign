@@ -26,29 +26,34 @@
         </header>
         
         <main class="bg-light">
-            <div class="bg-dark p-4">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for cars!" aria-level="" id="searchInput"> 
-
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle custom-secondary-btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sort by
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onclick="setSort(0)">Best Match</a>
-                            <a class="dropdown-item" href="#" onclick="setSort(1)">Best Match + Price (High to Low)</a>
-                            <a class="dropdown-item" href="#" onclick="setSort(2)">Best Match + Price (Low to High)</a>
-                            <a class="dropdown-item" href="#" onclick="setSort(3)">Best Match + Mileage (High to Low)</a>
-                            <a class="dropdown-item" href="#" onclick="setSort(4)">Best Match + Mileage (Low to High)</a>
+            <div class="bg-dark text-white container-fluid p-4">
+                <h1>Loan Estimator</h1>
+            </div>
+            <div class="bg-light container-fluid p-4">
+                <div class="container">
+                    <form id="loanForm">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Annual Interest Rate</span>
+                            <input type="number" class="form-control" id="inputMonthly" name="annualInterest" aria-label="The monthly payment you get">
                         </div>
-                    </div>
-                    
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-primary" type="button" onclick="searchList()">Search</button>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Principal Loan Amount</span>
+                            <input type="number" class="form-control" id="inputRate" name="principalLoan" aria-label="Your principal loan ammount">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Number of Months</span>
+                            <input type="number" class="form-control" id="inputMonths" name="months" aria-label="Term of the loan in months">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                    <div id="output">
+                        
                     </div>
                 </div>
-            </div>
-            <div id="carList" class="m-4">
             </div>
         </main>
         <footer class="p-2 bg-primary text-center text-light">
@@ -68,10 +73,9 @@
                 <hr>
             </div>
         </footer>
+
         </div>
     </body>
 
-    <script src="car_search/car_data.js"></script>
-    <script src="car_search/sorting_functions.js"></script>
-    <script src="car_search/car_list.js"></script>
+    <script src="loan_calculator.js"></script>
 </html>
