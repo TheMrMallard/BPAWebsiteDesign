@@ -16,34 +16,18 @@ function getId(index) {
 
     // Get the items from the localStorage to the sampleArray
     var localIds = JSON.parse(localStorage.getItem('ids'))
+    var id;
 
-    if(localIds == null) {
+    if(localIds[index] == null) {
         sampleArray[index] = generateId()
-
-        localStorage.setItem('ids', JSON.stringify(sampleArray))
+        id = sampleArray[index]
+    } else {
+        id = localIds[index]
     }
+    
+    localStorage.setItem('ids', JSON.stringify(sampleArray))   
 
-    // Store id from localStorage
-
-    // return generateId()
-    /*
-    // Whats taken in: the item number
-    for(i = 0; i < carList.length; i++) {
-        // Create the id
-        var id = generateId();
-
-        // Get the key and the value (which is an array) from LocalStorage, returns null if no key value pair is found
-
-        // Check if the id is already stored and returns the id stored in localStorage
-        if() {
-
-        } else {
-            // Else, store the generated id and return the id itself
-            
-            return id;
-        }
-    }
-    */
+    return id
 }
 
 function generateId() {
