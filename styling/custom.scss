@@ -11,29 +11,23 @@ $white: #FFFFFF;
     position: absolute;
 }
 
-#footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-}
+html {
+    body {
+        header {
+            nav {
+                .links {
+                    text-decoration: none;
+                }
+            }
+        }
 
-body {
-    header {
-        nav {
+        #footer {
             .links {
                 text-decoration: none;
             }
         }
     }
-
-    footer {
-        .links {
-            text-decoration: none;
-        }
-    }
 }
-
 
 // Test
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
