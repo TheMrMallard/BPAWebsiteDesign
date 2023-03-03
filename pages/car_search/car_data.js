@@ -11,23 +11,26 @@ carList.push(
 );
 
 function getId(index) {
-    // Iterate through the array and check if carId already has an id, if so get the id, if not, generate one and store it in localStorage
-    var sampleArray = new Array(carList.length)
-
     // Get the items from the localStorage to the sampleArray
     var localIds = JSON.parse(localStorage.getItem('ids'))
-    var id;
 
+    // Check if localIds does not exist
+    if(!localIds) {
+        localIds = new Array(carlist.length)
+        for(i = 0; i < localIds.length; i++) {
+            localIds[i] = generateId();
+        }
+
+        localStorage.setItem('ids', JSON.stringify(localIds))   
+    } 
+
+    // If current local id is null, set current index to a randomly generated id, and then
     if(localIds[index] == null) {
-        sampleArray[index] = generateId()
-        id = sampleArray[index]
-    } else {
-        id = localIds[index]
+        localIds[index] = generateId()
+        localStorage.setItem('ids', JSON.stringify(localIds))   
     }
-    
-    localStorage.setItem('ids', JSON.stringify(sampleArray))   
 
-    return id
+    return localIds[index]
 }
 
 function generateId() {
