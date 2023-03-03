@@ -1,7 +1,7 @@
 // Create object based array
 var carList = new Array();
 carList.push(
-    {carId: getId(0), model: 'White Land Rover Ranger Rover', fuelType: "Gasoline", price: 87990, mileage: 23421, exteriorColor: 'White', img: '/images/car1.jpeg', alt: 'A car of a white land Rover Ranger Rover suv on the road'},
+    {carId: getId(0), model: 'White Land Rover Ranger Rover', fuelType: "Gasoline", price: 87990, mileage: 23421, exteriorColor: 'White', img: '/images/car1.jpeg', alt: 'A car of a white land Rover Ranger Rover suv on the road', link: 'https://www.edmunds.com/land-rover/range-rover/2016/vin/SALGS2EFXGA311272/?radius=500'},
     {carId: getId(1), model: 'Blue Mercedes Benz 5', fuelType: "Gasoline", price: 27990, mileage: 12832, exteriorColor: 'Blue', img: '/images/car2.webp', alt: 'A car of a blue Mercedes Benz front-side view looking right'},
     {carId: getId(2), model: 'Grey Ford Focus Hatchback', fuelType: "Gasoline", price: 15895, mileage: 12421, exteriorColor: 'Grey', img: '/images/car3.jpeg', alt: 'A car of a grey Ford front-side view looking left'},
     {carId: getId(3), model: 'Blue Audi RS 6', fuelType: "Gasoline", price: 123590, mileage: 3832, exteriorColor: 'Blue', img: '/images/car4.jpeg', alt: 'A car of a blue Audi on its back-side'},
@@ -16,7 +16,7 @@ function getId(index) {
 
     // Check if localIds does not exist
     if(!localIds) {
-        localIds = new Array(carlist.length)
+        localIds = new Array(carList.length)
         for(i = 0; i < localIds.length; i++) {
             localIds[i] = generateId();
         }

@@ -25,11 +25,14 @@ function carInfoBuilder(array) {
                         <li> Color: ${array.exteriorColor} </li>
                     </ul> 
 
-                    <button class="m-2 btn btn-primary disabled" type="button" aria-haspopup="true" aria-expanded="false">
-                        More Info
-                    </button>
+                    <a href="${array.link}">
+                        <button class="m-2 btn btn-primary" type="button" aria-haspopup="true" aria-expanded="false">
+                            More Info
+                        </button>
+                    </a>
+
                     <br>
-                    Car Id: ${array.carId}
+                    Car Id: ${array.carId} (shown for showcase purposes)
                 </div> 
             </div> 
 
