@@ -25,7 +25,7 @@ function carInfoBuilder(array) {
                         <li> Color: ${array.exteriorColor} </li>
                     </ul> 
 
-                    <a href="${array.link}">
+                    <a href="${array.link}" target="_blank">
                         <button class="m-2 btn btn-primary" type="button" aria-haspopup="true" aria-expanded="false">
                             More Info
                         </button>
