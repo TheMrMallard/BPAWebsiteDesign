@@ -15,7 +15,7 @@ function getLoanInfo(event) {
 function showLoan(input) {
     var outputId = document.getElementById("output");
 
-    outputId.innerHTML = `<h2>The calculated loan is $${input}</h2>`
+    outputId.innerHTML = `<hr><h2>The calculated loan is $${input}</h2>`
 }
 
 function calculateLoan(annualInterest, initial, months) {
