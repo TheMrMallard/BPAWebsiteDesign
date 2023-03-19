@@ -15,9 +15,8 @@ function sortValues(array, arrayScore, keyValue, beReversed) {
     // Setup other variables
     let reverse = beReversed;
     let highest = Math.max(...arrayScore)
-
    
-    // Iterate through and make valueAndPosition array
+    // Iterate through and make valueScorePosition array
     for(i = 0; i < valueScorePosition.length; i++) {
         for(j = 0; j < valueScorePosition[i].length; j++) {
             if(j == 0) {
